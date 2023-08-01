@@ -5,6 +5,7 @@ import "./App.css";
 import Navbar from "./Component/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import PizzaDetails from "./Component/PizzaDetails";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,7 +15,16 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route
+          path="/pizza/:id"
+          element={
+
+            <PizzaDetails />
+
+          }
+        />
       </Routes>
+
     </>
   );
 }

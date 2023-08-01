@@ -8,6 +8,7 @@ import {
 import { BsThreeDotsVertical } from "react-icons/bs";
 import styled from "styled-components";
 import pizzas from "../pizza-data"
+import { NavLink } from "react-router-dom";
 const Allpizza = () => {
 
     return (
@@ -15,7 +16,7 @@ const Allpizza = () => {
             <Wrapper>
                 <div className="container px-10 sm:px-8 md:px-6 lg:px-10 py-14 mx-auto">
 
-                    <div class="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
+                    <div className="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
                         {pizzas.map((curElem) => {
                             return <Pizza key={curElem.name} curElem={curElem} />;
                         })}
@@ -35,28 +36,24 @@ const Pizza = ({ curElem }) => {
 
 
 
-    const { name, varients, prices, category, image, description } = curElem;
+    const { id, name, varients, prices, category, image, description } = curElem;
     return (
+        <div className=" bg-white cursor-pointer px-3 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
+            <NavLink to={`/pizza/${id}`}>
+                <div className="relative">
+                    <img className="w-full h-48 rounded-xl" src={image} alt="Colors" />
+                    <p className="absolute top-0 bg-orange-500 text-white font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">${prices[0][varient] * quantity}</p>
+                </div>
+            </NavLink>
+            <div className="flex flex-col space-y-4">
+                <h1 className="mt-4 text-gray-800 text-xl font-bold cursor-pointer">{name}</h1>
 
 
-
-
-
-        <div class=" bg-white px-3 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
-
-            <div class="relative">
-                <img class="w-full h-48 rounded-xl" src={image} alt="Colors" />
-                <p class="absolute top-0 bg-orange-500 text-white font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">${prices[0][varient] * quantity}</p>
-            </div>
-            <div class="flex flex-col space-y-4">
-                <h1 class="mt-4 text-gray-800 text-xl font-bold cursor-pointer">{name}</h1>
-
-
-                <div class="flex justify-between items-center">
+                <div className="flex justify-between items-center">
                     <div className="text-xl font-semibold text-black">Varients</div>
                     <select
                         value={varient}
-                        className="bg-gray-100 p-2"
+                        className="bg-gray-100 cursor-pointer p-2"
                         onChange={(e) => setVarient(e.target.value)}
                     >
                         {varients.map((varient) => (
@@ -64,11 +61,11 @@ const Pizza = ({ curElem }) => {
                         ))}
                     </select>
                 </div>
-                <div class="flex justify-between items-center">
+                <div className="flex justify-between items-center">
                     <div className="text-xl font-semibold text-black">Quantity</div>
                     <select
                         value={quantity}
-                        className="bg-gray-100 p-2"
+                        className="bg-gray-100 cursor-pointer p-2"
                         onChange={(e) => setQuantity(e.target.value)}
                     >
                         {[...Array(10).keys()].map((v, i) => (

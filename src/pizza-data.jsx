@@ -1,5 +1,6 @@
 const pizzas = [
   {
+    id: 1,
     name: "Margherita",
     varients: ["small", "medium", "large"],
     prices: [
@@ -14,6 +15,7 @@ const pizzas = [
     description: "Classic delight with 100% real mozzarella cheese",
   },
   {
+    id: 2,
     name: "Farmhouse",
     varients: ["small", "medium", "large"],
     prices: [
@@ -29,6 +31,7 @@ const pizzas = [
       "Delightful combination of onion, capsicum, tomato & grilled mushroom",
   },
   {
+    id: 3,
     name: "Veggie Paradise",
     varients: ["small", "medium", "large"],
     prices: [
@@ -44,6 +47,7 @@ const pizzas = [
     image: "/images/veggie_paradise.jpg",
   },
   {
+    id: 4,
     name: "Chicken Golden Delight",
     varients: ["small", "medium", "large"],
     prices: [
@@ -59,6 +63,7 @@ const pizzas = [
       "Double pepper barbecue chicken, golden corn and extra cheese, true delight",
   },
   {
+    id: 5,
     name: "Chicken Pepperoni",
     varients: ["small", "medium", "large"],
     prices: [
@@ -74,6 +79,7 @@ const pizzas = [
       "A classic American taste! Relish the delectable flavor of Chicken Pepperoni, topped with extra cheese",
   },
   {
+    id: 6,
     name: "Indi Chicken Tikka",
     varients: ["small", "medium", "large"],
     prices: [
